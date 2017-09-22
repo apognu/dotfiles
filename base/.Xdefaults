@@ -1,0 +1,55 @@
+xft.dpi: 96
+xft.rgba: rgb
+xft.antialias: true
+xft.hinting: true
+xft.hintstle: hintslight
+
+scratchpad*depth: 32
+scratchpad*background: [98]#262626
+scratchpad*foreground: #c0c0c0
+
+scratchpad*scrollBar: false
+scratchpad*cursorUnderline: true
+scratchpad*cursorBlink: true
+scratchpad.intensityStyles: true
+
+scratchpad*font: xft:Inconsolata:size=9
+
+scratchpad*scrollTtyOutput: false
+scratchpad*secondaryScreen: 1
+scratchpad*secondaryScroll: 0
+
+scratchpad*color0: #073642
+scratchpad*color8: #002b36
+scratchpad*color1: #dc322f
+scratchpad*color9: #cb4b16
+scratchpad*color2: #859900
+scratchpad*color10: #586e75
+scratchpad*color3: #b58900
+scratchpad*color11: #657b83
+scratchpad*color4: #268bd2
+scratchpad*color12: #839496
+scratchpad*color5: #d33682
+scratchpad*color13: #6c71c4
+scratchpad*color6: #2aa198
+scratchpad*color14: #93a1a1
+scratchpad*color7: #eee8d5
+scratchpad*color15: #fdf6e3
+
+rofi.color-enabled: true
+rofi.color-window: #df34495e, #df34495e, #343434
+rofi.color-normal: #0034495e, #ffffff, #0034495e, #003b5875, #6bb9f0
+rofi.color-active: #0034495e, #ffffff, #0034495e, #0034495e, #ffffff
+
+rofi.modi: drun,run,window
+rofi.scroll-method: 1
+rofi.font: Noto Sans 15
+rofi.eh: 2
+rofi.line-margin: 5
+rofi.hide-scrollbar: true
+rofi.lines: 4
+rofi.fullscreen: true
+rofi.padding: 350
+rofi.separator-style: line
+rofi.case-sensitive: false
+
