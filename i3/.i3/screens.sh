@@ -2,7 +2,7 @@
 
 exec > /dev/null 2>&1
 
-export XAUTHORITY=/home/apognu/.Xauthority
+export XAUTHORITY=~/.Xauthority
 export DISPLAY=:0
 
 SECONDARY="${1:-HDMI1}"
@@ -14,5 +14,9 @@ else
 fi
 
 feh --bg-fill Documents/wallpaper.jpg
-/home/apognu/.config/polybar/start.sh
+
+pkill compton
+compton --config ~/.config/compton.conf &
+
+i3-msg restart
 

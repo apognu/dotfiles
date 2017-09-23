@@ -25,8 +25,10 @@ bindkey '^Xe' edit-command-line
 # bindkey "^[Od" backward-word
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export GOPATH="/home/apognu/Programming/go"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/apognu/.rvm/scripts/rvm
 
 alias glog='git log --format="%h%Cgreen%d%Creset %Cblue%an%Creset %C(white)%ad%Creset %s" --graph --all --date="short"'
 alias mux='teamocil --here'
@@ -35,3 +37,4 @@ prompt apognu
 
 if [ "$TMUX" = "" ]; then tmux && exit; fi
 
+export PATH="$PATH:$HOME/Programming/go/bin:$HOME/.rvm/bin"

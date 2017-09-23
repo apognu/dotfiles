@@ -4,52 +4,44 @@ xft.antialias: true
 xft.hinting: true
 xft.hintstle: hintslight
 
-scratchpad*depth: 32
-scratchpad*background: [98]#262626
-scratchpad*foreground: #c0c0c0
+*.font: xft:Inconsolta:size=9
 
-scratchpad*scrollBar: false
-scratchpad*cursorUnderline: true
-scratchpad*cursorBlink: true
-scratchpad.intensityStyles: true
+*.foreground:   #5b5b5b
+*.background:   #1b1b1b
+*.cursorColor:  #5b5b5b
+*.color0:       #272727
+*.color8:       #333333
+*.color1:       #2fcc93
+*.color9:       #7eeec6
+*.color2:       #3ea24f
+*.color10:      #8af69c
+*.color3:       #7bba4d
+*.color11:      #a8f470
+*.color4:       #92893d
+*.color12:      #ead41f
+*.color5:       #a65841
+*.color13:      #842e15
+*.color6:       #b1b360
+*.color14:      #4d4e21
+*.color7:       #b3b3b3
+*.color15:      #d2d2d2
 
-scratchpad*font: xft:Inconsolata:size=9
+rofi.color-window: argb:ff34495e, #002b37, argb:00000000
+rofi.color-normal: argb:d62c3e50, #819396, argb:d62c3e50, #34495e, #819396
 
-scratchpad*scrollTtyOutput: false
-scratchpad*secondaryScreen: 1
-scratchpad*secondaryScroll: 0
-
-scratchpad*color0: #073642
-scratchpad*color8: #002b36
-scratchpad*color1: #dc322f
-scratchpad*color9: #cb4b16
-scratchpad*color2: #859900
-scratchpad*color10: #586e75
-scratchpad*color3: #b58900
-scratchpad*color11: #657b83
-scratchpad*color4: #268bd2
-scratchpad*color12: #839496
-scratchpad*color5: #d33682
-scratchpad*color13: #6c71c4
-scratchpad*color6: #2aa198
-scratchpad*color14: #93a1a1
-scratchpad*color7: #eee8d5
-scratchpad*color15: #fdf6e3
-
-rofi.color-enabled: true
-rofi.color-window: #df34495e, #df34495e, #343434
-rofi.color-normal: #0034495e, #ffffff, #0034495e, #003b5875, #6bb9f0
-rofi.color-active: #0034495e, #ffffff, #0034495e, #0034495e, #ffffff
-
-rofi.modi: drun,run,window
+rofi.modi: drun
 rofi.scroll-method: 1
-rofi.font: Noto Sans 15
-rofi.eh: 2
-rofi.line-margin: 5
+rofi.font: Roboto 14
+rofi.eh: 1
+rofi.line-margin: 1
 rofi.hide-scrollbar: true
+rofi.border-width: 0
 rofi.lines: 4
-rofi.fullscreen: true
-rofi.padding: 350
-rofi.separator-style: line
+rofi.fullscreen: false
+rofi.padding: 1
+rofi.bw: 0
+rofi.separator-style: solid
 rofi.case-sensitive: false
+rofi.line-padding: 10
+rofi.display-drun:   Applications
 

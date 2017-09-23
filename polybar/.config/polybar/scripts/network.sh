@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exec 2> /dev/null
+
 if [ $(cat /sys/class/net/lan/carrier) -eq 1 ]; then
   OUT=" $(ip address show lan | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)"
 fi

@@ -29,7 +29,6 @@ bindsym $mod+g exec nautilus
 
 bindsym $mod+Shift+A kill
 
-# bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='dmenu -i -l 5'
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 bindsym $mod+Left focus left
@@ -117,7 +116,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.i3/volume.sh down
 
 bindsym XF86MonBrightnessUp exec --no-startup-id echo "$(cat /sys/class/backlight/intel_backlight/brightness)+50" | bc | sudo tee /sys/class/backlight/intel_backlight/brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id echo "$(cat /sys/class/backlight/intel_backlight/brightness)-50" | bc | sudo tee /sys/class/backlight/intel_backlight/brightness
-bindsym XF86Tools exec --no-startup-id /usr/local/bin/screen-layout
+bindsym XF86Tools exec --no-startup-id ~/.i3/screens.sh
 
 client.focused          #4c7899 #073642 #ffffff #0b3027
 client.focused_inactive #333333 #484848 #ffffff #484e50
