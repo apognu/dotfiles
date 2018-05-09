@@ -32,9 +32,18 @@ source /home/apognu/.rvm/scripts/rvm
 
 alias glog='git log --format="%h%Cgreen%d%Creset %Cblue%an%Creset %C(white)%ad%Creset %s" --graph --all --date="short"'
 alias mux='teamocil --here'
+alias sshuttle='sshuttle --method=nft'
 
 prompt apognu
 
 if [ "$TMUX" = "" ]; then tmux && exit; fi
 
 export PATH="$PATH:$HOME/Programming/go/bin:$HOME/.rvm/bin"
+
+# Kubernetes aliases
+
+function kjob() {
+  kubectl logs \
+    $(kubectl get pods -a -l controller-uid=\
+    $(kubectl get jobs -o jsonpath='{.items[0].spec.selector.matchLabels.controller-uid}') -o jsonpath='{.items[0].metadata.name}')
+}

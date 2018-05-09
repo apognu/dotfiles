@@ -3,9 +3,10 @@ set $mod Mod4
 exec --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/.config/polybar/start.sh
 exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id /usr/lib/notify-osd/notify-osd
 exec --no-startup-id volnoti
 exec --no-startup-id feh --bg-fill $HOME/Documents/wallpaper.jpg
+exec --no-startup-id termite -e "zsh -c /usr/bin/weechat"
+exec --no-startup-id dunst
 
 font pango:Inconsolata 9
 
@@ -19,10 +20,13 @@ floating_modifier $mod
 
 for_window [class=float] floating enable
 for_window [class=mpv] floating enable
-for_window [class=Transmission-gtk title=Transmission] floating enable, move scratchpad
-for_window [class="Google Play Music Desktop Player"] floating enable, move scratchpad
+for_window [class=Pinentry] floating enable
+for_window [title=".*Emulator.*"] floating enable
+for_window [title=".*WeeChat 2.1.*"] move scratchpad, resize set 1700 800, move absolute position center, scratchpad show
 
 bindsym $mod+l exec $HOME/.i3/lock.sh
+
+bindsym $mod+Shift+H exec "termite -e 'zsh -c /usr/bin/weechat'"
 
 bindsym $mod+Return exec termite
 bindsym $mod+g exec nautilus
@@ -86,8 +90,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Screenshots
-bindsym $mod+Shift+x exec "sleep 0.2 ; scrot
-bindsym $mod+Shift+w exec "sleep 0.2 ; scrot -s -e 'xclip -t image/png -selection clipboard -i < $f'"
+bindsym $mod+Shift+x exec "sleep 0.2 ; scrot $HOME/Documents/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png"
+bindsym $mod+Shift+w exec "sleep 0.2 ; scrot -s -e 'xclip -t image/png -selection clipboard -i < $f' $HOME/Documents/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png"
 
 # Scratchpad
 bindsym $mod+Shift+p move scratchpad

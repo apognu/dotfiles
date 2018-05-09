@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -Sy &> /dev/null
+# sudo pacman -Sy &> /dev/null
 
 if [ $? -ne 0 ]; then
   exit 0

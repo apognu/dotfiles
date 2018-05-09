@@ -11,11 +11,11 @@ background = #34495e
 line-size = 3
 
 font-0 = Roboto:size=8;2
-font-1 = FontAwesome:size=10;3
+font-1 = "FontAwesome:style=Regular:size=10;3"
 
 modules-left = i3top title
 modules-center = music
-modules-right = pacman vpn network load disk volume battery power
+modules-right = pacman zerotier network load disk volume battery power
 
 [module/i3top]
 type = internal/i3
@@ -39,7 +39,7 @@ label-urgent-padding = 4
 label-urgent-background = #96281b
 
 ws-icon-0 = "1;"
-ws-icon-1 = "2;"
+ws-icon-1 = "2; 
 ws-icon-2 = "3;"
 ws-icon-3 = "4;"
 ws-icon-4 = "5;"
@@ -94,9 +94,9 @@ exec = ~/.config/polybar/scripts/network.sh
 interval = 5
 format-padding = 4
 
-[module/vpn]
+[module/zerotier]
 type = custom/script
-exec = ~/.config/polybar/scripts/vpn.sh appscho appscho-ext
+exec = ~/.config/polybar/scripts/zerotier.sh
 interval = 5
 format-padding = 4
 
@@ -117,7 +117,7 @@ line-size = 2
 font-0 = Noto Sans:size=12;3
 font-1 = Noto Sans:size=9;3
 font-2 = Noto Sans:size=7;3
-font-3 = FontAwesome:size=11;1
+font-3 = "FontAwesome:style=Regular:size=10;1"
 
 modules-left = menu
 modules-center = i3bottom
