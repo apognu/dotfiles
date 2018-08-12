@@ -15,7 +15,7 @@ fi
 SSID="$(iwgetid -r)"
 
 if [ $? -eq 0 ]; then
-  STR=" $(ip address show wlan | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) [$SSID]"
+  STR=" $(ip address show wlan | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) [$SSID]"
 
   if [ -z "$OUT" ]; then
     OUT="$STR"

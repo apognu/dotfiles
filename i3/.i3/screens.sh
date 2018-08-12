@@ -13,7 +13,7 @@ else
   xrandr --output $SECONDARY --off
 fi
 
-feh --bg-fill Documents/wallpaper.jpg
+feh --bg-fill Documents/wallpaper.png
 
 pkill compton
 compton --config ~/.config/compton.conf &

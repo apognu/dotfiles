@@ -1,16 +1,8 @@
 #!/bin/sh
 
-UNITS="$*"
-OUT=''
+TUNNELS="$(sudo wgctl status -s | xargs | tr ' ' '/')"
 
-for UNIT in $UNITS; do
-  if systemctl status openvpn-client@${UNIT} &> /dev/null; then
-    if [ -z "$OUT" ]; then
-      OUT=" $UNIT"
-    else
-      OUT="${OUT}/$UNIT"
-    fi
-  fi
-done
+[ -z "$TUNNELS" ] && echo '' && exit 0
 
-echo $OUT
+echo " ${TUNNELS}"
+

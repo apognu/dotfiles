@@ -1,166 +1,96 @@
 [settings]
 screenchange-reload = true
+background = #eaeaea
+foreground = #282828
+padding = 3
 
-[bar/topbar]
+[bar/bottombar]
 monitor = ${env:MONITOR:eDP1}
-bottom = false
-fixed-center = true
-width = 100%
-height = 30
-background = #34495e
+bottom = true
+
+width = 80%
+height = 32
+
+background = ${settings.background}
 line-size = 3
+padding = 6
+border-top-size = 1
 
-font-0 = Roboto:size=8;2
-font-1 = "FontAwesome:style=Regular:size=10;3"
+override-redirect = true
 
-modules-left = i3top title
-modules-center = music
-modules-right = pacman zerotier network load disk volume battery power
+offset-x = 10%
+offset-y = 6
 
-[module/i3top]
-type = internal/i3
-index-sort = true
-wrapping-scroll = false
-pin-workspaces = true
+radius = 3
 
-format = <label-state>
-label-focused = %icon%
-label-focused-padding = 4
-label-focused-background = #2574A9
-label-focused-underline = #ffffff
-label-visible = %icon%
-label-visible-padding = 4
-label-visible-background = #2574A9
-label-visible-underline = #ffffff
-label-unfocused =
-label-unfocused-padding = 4
-label-urgent = %icon%
-label-urgent-padding = 4
-label-urgent-background = #96281b
+font-0 = Noto Sans:size=12;2
+font-1 = Noto Sans:size=8;2
+font-2 = Noto Sans:size=6;2
+font-3 = Hasklug Nerd Font Mono:size=13;3
 
-ws-icon-0 = "1;"
-ws-icon-1 = "2; 
-ws-icon-2 = "3;"
-ws-icon-3 = "4;"
-ws-icon-4 = "5;"
-ws-icon-5 = "6;"
-ws-icon-6 = "7;"
-ws-icon-7 = "8;"
-ws-icon-8 = "9;"
-ws-icon-9 = "10;"
-ws-icon-default = 
-
-[module/title]
-type = internal/xwindow
-format-padding = 4
-label-maxlen = 50
+modules-left = desktops
+modules-right = vpn network volume battery date time
 
 [module/battery]
 type = custom/script
 exec = ~/.config/polybar/scripts/battery.sh
 interval = 30
-format-padding = 4
+format-padding = ${settings.padding}
+format-foreground = ${settings.foreground}
+label-font = 2
 
 [module/volume]
 type = custom/script
 exec = ~/.config/polybar/scripts/volume.sh
 interval = 2
-format-padding = 4
+format-padding = ${settings.padding}
 scroll-up = ~/.i3/volume.sh up
 scroll-down = ~/.i3/volume.sh down
 click-middle = ~/.i3/volume.sh mute
-
-[module/load]
-type = custom/script
-exec = ~/.config/polybar/scripts/load.sh
-interval = 10
-format-padding = 4
-
-[module/disk]
-type = custom/script
-exec = ~/.config/polybar/scripts/disk.sh
-interval = 30
-format-padding = 4
-
-[module/music]
-type = custom/script
-exec = ~/.config/polybar/scripts/music.sh
-interval = 2
-click-left = playerctl play-pause &; pkill playerctl
+label-font = 2
+format-foreground = ${settings.foreground}
 
 [module/network]
 type = custom/script
 exec = ~/.config/polybar/scripts/network.sh
 interval = 5
-format-padding = 4
+format-padding = ${settings.padding}
+format-foreground = ${settings.foreground}
+label-font = 2
 
-[module/zerotier]
+[module/vpn]
 type = custom/script
-exec = ~/.config/polybar/scripts/zerotier.sh
+exec = ~/.config/polybar/scripts/vpn.sh
 interval = 5
-format-padding = 4
-
-[module/pacman]
-type = custom/script
-exec = ~/.config/polybar/scripts/pacman.sh
-interval = 60
-format-padding = 4
-
-[bar/bottombar]
-monitor = ${env:MONITOR:eDP1}
-bottom = true
-fixed-center = true
-height = 30
-background = #34495e
-line-size = 2
-
-font-0 = Noto Sans:size=12;3
-font-1 = Noto Sans:size=9;3
-font-2 = Noto Sans:size=7;3
-font-3 = "FontAwesome:style=Regular:size=10;1"
-
-modules-left = menu
-modules-center = i3bottom
-modules-right = date time
+label-font = 2
+format-padding = ${settings.padding}
+format-foreground = ${settings.foreground}
 
 [module/date]
 type = internal/date
 interval = 1
 label = %date%
 label-font = 2
-format-foreground = #aeaeae
-label-padding-right = 1
+format-foreground = ${settings.foreground}
+label-padding-left = ${settings.padding}
+label-padding-right = 0
 date = "%a %d %b "
 
 [module/time]
 type = internal/date
 interval = 1
 label = %time%
-label-padding-right = 5
+format-foreground = ${settings.foreground}
 time = %H:%M
 
-[module/i3bottom]
-inherit = module/i3top
-
-label-focused = %name% %icon%
+[module/desktops]
+type = internal/i3
+format-foreground = ${settings.foreground}
+strip-wsnumbers = true
+label-focused = ""
 label-focused-font = 3
-label-focused-underline = #ffffff
-label-visible= %name% %icon%
-label-visible-font = 3
-label-unfocused = %name% %icon%
 label-unfocused-font = 3
-label-urgent = %name% %icon%
 label-urgent-font = 3
-
-[module/menu]
-type = custom/text
-content = 
-content-padding = 5
-click-left = rofi -show drun
-
-[module/power]
-type = custom/text
-content = 
-content-padding = 5
-click-left = ~/.i3/power.sh
-
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-urgent-padding = 1

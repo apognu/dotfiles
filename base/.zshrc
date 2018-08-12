@@ -33,6 +33,7 @@ source /home/apognu/.rvm/scripts/rvm
 alias glog='git log --format="%h%Cgreen%d%Creset %Cblue%an%Creset %C(white)%ad%Creset %s" --graph --all --date="short"'
 alias mux='teamocil --here'
 alias sshuttle='sshuttle --method=nft'
+alias stern='stern --since=1s'
 
 prompt apognu
 

@@ -4,31 +4,32 @@ exec --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/.config/polybar/start.sh
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id volnoti
-exec --no-startup-id feh --bg-fill $HOME/Documents/wallpaper.jpg
-exec --no-startup-id termite -e "zsh -c /usr/bin/weechat"
+exec --no-startup-id feh --bg-fill $HOME/Documents/wallpaper.png
 exec --no-startup-id dunst
 
 font pango:Inconsolata 9
 
 new_window pixel 0
 
-gaps inner 8
-gaps outer 0
+gaps inner 12
+gaps outer 4
 
 floating_modifier $mod
-# floating_minimum_size 1200x600
 
+for_window [window_role=floating] floating enable, resize set 700 400
+for_window [class="Termite"] border normal 24
 for_window [class=float] floating enable
 for_window [class=mpv] floating enable
 for_window [class=Pinentry] floating enable
 for_window [title=".*Emulator.*"] floating enable
-for_window [title=".*WeeChat 2.1.*"] move scratchpad, resize set 1700 800, move absolute position center, scratchpad show
+for_window [title=".*WeeChat 2.2.*"] move scratchpad, resize set 1700 800, move absolute position center, scratchpad show
 
 bindsym $mod+l exec $HOME/.i3/lock.sh
 
 bindsym $mod+Shift+H exec "termite -e 'zsh -c /usr/bin/weechat'"
 
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite -r floating
 bindsym $mod+g exec nautilus
 
 bindsym $mod+Shift+A kill
@@ -90,8 +91,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Screenshots
-bindsym $mod+Shift+x exec "sleep 0.2 ; scrot $HOME/Documents/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png"
-bindsym $mod+Shift+w exec "sleep 0.2 ; scrot -s -e 'xclip -t image/png -selection clipboard -i < $f' $HOME/Documents/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png"
+bindsym $mod+Shift+x exec "sleep 0.2 ; $HOME/.i3/screenshot.sh full"
+bindsym $mod+Shift+w exec "sleep 0.2 ; $HOME/.i3/screenshot.sh region"
 
 # Scratchpad
 bindsym $mod+Shift+p move scratchpad
@@ -122,8 +123,35 @@ bindsym XF86MonBrightnessUp exec --no-startup-id echo "$(cat /sys/class/backligh
 bindsym XF86MonBrightnessDown exec --no-startup-id echo "$(cat /sys/class/backlight/intel_backlight/brightness)-50" | bc | sudo tee /sys/class/backlight/intel_backlight/brightness
 bindsym XF86Tools exec --no-startup-id ~/.i3/screens.sh
 
-client.focused          #4c7899 #073642 #ffffff #0b3027
-client.focused_inactive #333333 #484848 #ffffff #484e50
-client.unfocused        #333333 #484848 #888888 #292d2e
-client.urgent           #2f343a #484848 #ffffff #900000
+set_from_resource $bg background
+set $border #313446
+
+# CLASS                 BORDER  BACK    TEXT    INDICATOR
+client.focused          $bg     $bg     $bg     $bg
+client.focused_inactive $bg     $bg     $bg     $bg 
+client.unfocused        $bg     $bg     $bg     $bg
+client.urgent           $bg     $bg     $bg     $bg 
+client.placeholder      $bg     $bg     $bg     $bg 
+
+client.background $bg
+
+bar {
+  i3bar_command i3bar -t
+
+  position            bottom
+  tray_output         none
+  workspace_buttons   no
+  height              32
+
+  bindsym button1 nop
+  bindsym button2 nop
+  bindsym button3 nop
+  bindsym button4 nop
+  bindsym button5 nop
+
+  colors {
+    background #00000000
+  }
+}
+
 
