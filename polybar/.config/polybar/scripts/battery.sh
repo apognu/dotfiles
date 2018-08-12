@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ -d /sys/class/power_supply/BAT0 ] || (echo '' && exit 0)
+
 RAW_CAPACITY=$(cat /sys/class/power_supply/BAT*/capacity | awk '{ total += $1; count++ } END { print total/count }' | cut -d. -f1)
 CAPACITY=$(echo $RAW_CAPACITY | xargs printf "%3d\n")
 
