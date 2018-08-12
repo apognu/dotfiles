@@ -1,7 +1,8 @@
 [settings]
 screenchange-reload = true
 background = #eaeaea
-foreground = #282828
+foreground = #484848
+font = 5
 padding = 3
 
 [bar/bottombar]
@@ -23,12 +24,14 @@ offset-y = 6
 
 radius = 3
 
-font-0 = Noto Sans:size=12;2
-font-1 = Noto Sans:size=8;2
-font-2 = Noto Sans:size=6;2
+font-0 = Roboto:size=13;2
+font-1 = Roboto:weight=light:size=9;2
+font-2 = Roboto:weight=light:size=8;2
 font-3 = Hasklug Nerd Font Mono:size=13;3
+font-4 = Roboto:size=9:weight=regular;2
+font-5 = Material Icons:size=10;3
 
-modules-left = desktops
+modules-left = newdesktops
 modules-right = vpn network volume battery date time
 
 [module/battery]
@@ -37,7 +40,7 @@ exec = ~/.config/polybar/scripts/battery.sh
 interval = 30
 format-padding = ${settings.padding}
 format-foreground = ${settings.foreground}
-label-font = 2
+label-font = ${settings.font}
 
 [module/volume]
 type = custom/script
@@ -47,7 +50,7 @@ format-padding = ${settings.padding}
 scroll-up = ~/.i3/volume.sh up
 scroll-down = ~/.i3/volume.sh down
 click-middle = ~/.i3/volume.sh mute
-label-font = 2
+label-font = ${settings.font}
 format-foreground = ${settings.foreground}
 
 [module/network]
@@ -56,14 +59,21 @@ exec = ~/.config/polybar/scripts/network.sh
 interval = 5
 format-padding = ${settings.padding}
 format-foreground = ${settings.foreground}
-label-font = 2
+label-font = ${settings.font}
 
 [module/vpn]
 type = custom/script
 exec = ~/.config/polybar/scripts/vpn.sh
 interval = 5
-label-font = 2
+label-font = ${settings.font}
 format-padding = ${settings.padding}
+format-foreground = ${settings.foreground}
+
+[module/newdesktops]
+type = custom/script
+exec = ~/.config/polybar/scripts/desktops.py
+interval = 0.01
+label-font = 6
 format-foreground = ${settings.foreground}
 
 [module/date]
@@ -73,7 +83,7 @@ label = %date%
 label-font = 2
 format-foreground = ${settings.foreground}
 label-padding-left = ${settings.padding}
-label-padding-right = 0
+label-padding-right = 1
 date = "%a %d %b "
 
 [module/time]

@@ -8,14 +8,14 @@ fi
 
 KILLED="$(rfkill list 1 | grep 'Soft blocked' | awk '{print $3}')"
 if [ "$KILLED" == 'yes' ]; then
-  echo "$OUT  Wireless off"
+  echo "$OUT  Wireless off"
   exit 0
 fi
 
 SSID="$(iwgetid -r)"
 
 if [ $? -eq 0 ]; then
-  STR=" $(ip address show wlan | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) [$SSID]"
+  STR=" $(ip address show wlan | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) [$SSID]"
 
   if [ -z "$OUT" ]; then
     OUT="$STR"
@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
 fi
 
 if [ -z "$OUT" ]; then
-  OUT=' No network'
+  OUT=' No network'
 fi
 
 echo $OUT
