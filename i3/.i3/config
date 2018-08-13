@@ -12,7 +12,7 @@ font pango:Inconsolata 9
 new_window pixel 0
 
 gaps inner 12
-gaps outer 4
+gaps outer 0
 
 floating_modifier $mod
 

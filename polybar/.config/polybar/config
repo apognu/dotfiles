@@ -9,7 +9,7 @@ padding = 3
 monitor = ${env:MONITOR:eDP1}
 bottom = true
 
-width = 80%
+width = 60%
 height = 32
 
 background = ${settings.background}
@@ -19,7 +19,7 @@ border-top-size = 1
 
 override-redirect = true
 
-offset-x = 10%
+offset-x = 20%
 offset-y = 6
 
 radius = 3
@@ -31,7 +31,7 @@ font-3 = Hasklug Nerd Font Mono:size=13;3
 font-4 = Roboto:size=9:weight=regular;2
 font-5 = Material Icons:size=10;3
 
-modules-left = newdesktops
+modules-left = desktops
 modules-right = vpn network volume battery date time
 
 [module/battery]
@@ -69,12 +69,14 @@ label-font = ${settings.font}
 format-padding = ${settings.padding}
 format-foreground = ${settings.foreground}
 
-[module/newdesktops]
+[module/desktops]
 type = custom/script
 exec = ~/.config/polybar/scripts/desktops.py
 interval = 0.01
 label-font = 6
 format-foreground = ${settings.foreground}
+scroll-up = ~/.config/polybar/scripts/desktops.py up
+scroll-down = ~/.config/polybar/scripts/desktops.py down
 
 [module/date]
 type = internal/date
@@ -92,15 +94,3 @@ interval = 1
 label = %time%
 format-foreground = ${settings.foreground}
 time = %H:%M
-
-[module/desktops]
-type = internal/i3
-format-foreground = ${settings.foreground}
-strip-wsnumbers = true
-label-focused = ""
-label-focused-font = 3
-label-unfocused-font = 3
-label-urgent-font = 3
-label-focused-padding = 1
-label-unfocused-padding = 1
-label-urgent-padding = 1
