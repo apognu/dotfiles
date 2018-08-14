@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 exec 2> /dev/null
 

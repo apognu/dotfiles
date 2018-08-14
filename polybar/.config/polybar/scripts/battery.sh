@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 [ -d /sys/class/power_supply/BAT0 ] || (echo '' && exit 0)
 

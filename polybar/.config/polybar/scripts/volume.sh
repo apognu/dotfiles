@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/sh
 
-[ ! -x $(which pamixer) ] && (echo '' && exit 0)
+which pamixer > /dev/null 2>&1
+
+[ $? -ne 0 ] && echo '' && exit 0
 
 pamixer --get-mute > /dev/null && echo '%{u#f2784b}%{F#f2784b} Muted' && exit 0
 
