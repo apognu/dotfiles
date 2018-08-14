@@ -8,6 +8,8 @@ padding = 3
 [bar/bottombar]
 monitor = ${env:MONITOR:eDP1}
 bottom = true
+wm-restack = i3
+override-redirect = true
 
 width = 60%
 height = 32
@@ -16,8 +18,6 @@ background = ${settings.background}
 line-size = 3
 padding = 6
 border-top-size = 1
-
-override-redirect = true
 
 offset-x = 20%
 offset-y = 6
@@ -72,7 +72,7 @@ format-foreground = ${settings.foreground}
 [module/desktops]
 type = custom/script
 exec = ~/.config/polybar/scripts/desktops.py
-interval = 0.01
+interval = 0.1
 label-font = 6
 format-foreground = ${settings.foreground}
 scroll-up = ~/.config/polybar/scripts/desktops.py up

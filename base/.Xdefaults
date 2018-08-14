@@ -25,21 +25,21 @@
 *.color7:       #bfbfbf
 *.color15:      #e6e6e6
 
-rofi.color-window: argb:ff34495e, #002b37, argb:00000000
+rofi.color-window: argb:00000000, #002b37, argb:00000000
 rofi.color-normal: argb:d62c3e50, #819396, argb:d62c3e50, #34495e, #819396
 
 rofi.modi: drun
 rofi.scroll-method: 1
-rofi.font: Roboto 14
+rofi.font: Roboto 10
 rofi.eh: 1
-rofi.line-margin: 1
+rofi.line-margin: 0
 rofi.hide-scrollbar: true
 rofi.border-width: 0
 rofi.lines: 4
-rofi.fullscreen: false
-rofi.padding: 1
+rofi.fullscreen: true
+rofi.padding: 400
 rofi.bw: 0
-rofi.separator-style: solid
+rofi.separator-style: none
 rofi.case-sensitive: false
 rofi.line-padding: 10
 rofi.display-drun: Applications
