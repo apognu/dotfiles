@@ -28,4 +28,4 @@ alias stern='stern --since=1s'
 
 PS1='%F{red}%n%f/%F{green}%m%f %B%3~%b %(?:%F{green}ツ%f:%F{red}✖%f) %# '
 
-[ "$TMUX" = "" ] && tmux && exit
+[ -z "$TMUX" ] && tmux && exit
