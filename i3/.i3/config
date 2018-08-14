@@ -20,6 +20,7 @@ for_window [class="Termite"] border pixel 24
 for_window [class=float] floating enable
 for_window [class=mpv] floating enable
 for_window [class=Pinentry] floating enable
+for_window [class=".*Nautilus.*"] floating enable, resize set 800 450
 for_window [title=".*Emulator.*"] floating enable
 for_window [title=".*WeeChat 2.2.*"] move scratchpad, resize set 1700 800, move absolute position center, scratchpad show
 

@@ -30,7 +30,7 @@ rofi.color-normal: argb:d62c3e50, #819396, argb:d62c3e50, #34495e, #819396
 
 rofi.modi: drun
 rofi.scroll-method: 1
-rofi.font: Roboto 10
+rofi.font: Roboto 9
 rofi.eh: 1
 rofi.line-margin: 0
 rofi.hide-scrollbar: true
@@ -42,4 +42,4 @@ rofi.bw: 0
 rofi.separator-style: none
 rofi.case-sensitive: false
 rofi.line-padding: 10
-rofi.display-drun: Applications
+rofi.display-drun: Applications
