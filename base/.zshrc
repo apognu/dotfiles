@@ -13,9 +13,8 @@ bindkey -e
 autoload -Uz compinit
 compinit
 
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^Xe' edit-command-line
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="/home/${USER}/Programming/go"
