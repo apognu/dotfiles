@@ -9,15 +9,14 @@ exec --no-startup-id dunst
 
 font pango:Inconsolata 9
 
-new_window pixel 0
-
 gaps inner 12
 gaps outer 0
 
 floating_modifier $mod
 
+for_window [class="^.*"] border pixel 0
 for_window [window_role=floating] floating enable, resize set 700 400
-for_window [class="Termite"] border normal 24
+for_window [class="Termite"] border pixel 24
 for_window [class=float] floating enable
 for_window [class=mpv] floating enable
 for_window [class=Pinentry] floating enable
