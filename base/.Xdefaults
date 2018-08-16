@@ -42,4 +42,4 @@ rofi.bw: 0
 rofi.separator-style: none
 rofi.case-sensitive: false
 rofi.line-padding: 10
-rofi.display-drun: Applications
+rofi.display-drun: Applications

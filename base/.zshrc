@@ -11,7 +11,15 @@ setopt EXTENDED_HISTORY
 bindkey -e
 
 autoload -Uz compinit
+autoload -U select-word-style
+
 compinit
+select-word-style bash
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*:*:*:*:*' menu select
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -19,8 +27,6 @@ bindkey "^[[3~" delete-char
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="/home/${USER}/Programming/go"
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias glog='git log --format="%h%Cgreen%d%Creset %Cblue%an%Creset %C(white)%ad%Creset %s" --graph --all --date="short"'
 alias sshuttle='sshuttle --method=nft'

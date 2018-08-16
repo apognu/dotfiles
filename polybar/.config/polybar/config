@@ -17,12 +17,12 @@ height = 32
 background = ${settings.background}
 line-size = 3
 padding = 6
-border-top-size = 1
+border-size = 0
 
 offset-x = 20%
 offset-y = 6
 
-radius = 3
+radius = 16
 
 font-0 = Roboto:size=13;2
 font-1 = Roboto:weight=light:size=9;2
