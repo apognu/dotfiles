@@ -15,7 +15,8 @@ width = 60%
 height = 32
 
 background = ${settings.background}
-line-size = 3
+foreground = ${settings.foreground}
+line-size = 2
 padding = 6
 border-size = 0
 
@@ -32,7 +33,8 @@ font-4 = Roboto:size=9:weight=regular;2
 font-5 = Material Icons:size=10;3
 
 modules-left = desktops
-modules-right = vpn network volume battery date time
+modules-center = date time
+modules-right = vpn network volume battery
 
 [module/battery]
 type = custom/script
@@ -82,7 +84,7 @@ scroll-down = ~/.config/polybar/scripts/desktops.py down
 type = internal/date
 interval = 1
 label = %date%
-label-font = 2
+label-font = 3
 format-foreground = ${settings.foreground}
 label-padding-left = ${settings.padding}
 label-padding-right = 1
