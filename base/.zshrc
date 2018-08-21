@@ -1,3 +1,5 @@
+[ -z "$TMUX" ] && exec tmux && exit
+
 export EDITOR=vim
 export VISUAL=vim
 
@@ -27,6 +29,7 @@ bindkey "^[[3~" delete-char
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="/home/${USER}/Programming/go"
+export PATH="${GOPATH}/bin:${PATH}"
 
 alias glog='git log --format="%h%Cgreen%d%Creset %Cblue%an%Creset %C(white)%ad%Creset %s" --graph --all --date="short"'
 alias sshuttle='sshuttle --method=nft'
@@ -34,4 +37,3 @@ alias stern='stern --since=1s'
 
 PS1='%F{red}%n%f/%F{green}%m%f %B%3~%b %(?:%F{green}ツ%f:%F{red}✖%f) %# '
 
-[ -z "$TMUX" ] && tmux && exit
