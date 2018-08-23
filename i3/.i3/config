@@ -14,7 +14,7 @@ gaps outer 0
 
 floating_modifier $mod
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 4
 for_window [window_role=floating] floating enable, resize set 700 400
 for_window [class="Termite"] border pixel 16
 for_window [class=float] floating enable
