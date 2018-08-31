@@ -25,12 +25,13 @@
 *.color7:       #bfbfbf
 *.color15:      #e6e6e6
 
-rofi.color-window: argb:00000000, #002b37, argb:00000000
-rofi.color-normal: argb:d62c3e50, #819396, argb:d62c3e50, #34495e, #819396
+#                   odd             text     even           selected  text
+rofi.color-normal:  argb:deffffff,  #343434, argb:deffffff, #282a36,  #dedede
+rofi.color-window:  argb:90000000
 
 rofi.modi: drun
 rofi.scroll-method: 1
-rofi.font: Roboto 9
+rofi.font: Roboto 8
 rofi.eh: 1
 rofi.line-margin: 0
 rofi.hide-scrollbar: true
@@ -41,5 +42,5 @@ rofi.padding: 400
 rofi.bw: 0
 rofi.separator-style: none
 rofi.case-sensitive: false
-rofi.line-padding: 10
+rofi.line-padding: 8
 rofi.display-drun: Applications

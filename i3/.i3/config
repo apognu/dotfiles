@@ -120,6 +120,8 @@ bindsym XF86AudioMute exec --no-startup-id $HOME/.i3/volume.sh mute
 bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.i3/volume.sh up
 bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.i3/volume.sh down
 
+bindsym $mod+XF86Search exec --no-startup-id $HOME/.i3/networks.sh
+
 bindsym XF86MonBrightnessUp exec --no-startup-id echo "$(cat /sys/class/backlight/intel_backlight/brightness)+50" | bc | sudo tee /sys/class/backlight/intel_backlight/brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id echo "$(cat /sys/class/backlight/intel_backlight/brightness)-50" | bc | sudo tee /sys/class/backlight/intel_backlight/brightness
 bindsym XF86Tools exec --no-startup-id ~/.i3/screens.sh

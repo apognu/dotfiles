@@ -15,7 +15,7 @@ fatal() {
 }
 
 if [ $# -ne 2 ]; then
-  fatal "Usage: ${0} <HOSTNAME> <BLOCK_DEVICE>"
+  fatal "Usage: ${0} <BLOCK_DEVICE> <HOSTNAME>"
 fi
 
 if [ "$(hostname)" != 'archiso' ]; then
@@ -55,10 +55,10 @@ parted -sa opt "$BLOCK_DEVICE" \
 
 echo 'Creating filesystems.'
 
-mkfs.vfat "${BLOCK_DEVICE}1"
+mkfs.vfat "${BLOCK_DEVICE_PREFIX}1"
 
-cryptsetup --type luks2 luksFormat -q -h sha512 -c aes-xts-plain64 -s 512 "${BLOCK_DEVICE}2"
-cryptsetup open "${BLOCK_DEVICE}2" root
+cryptsetup --type luks2 luksFormat -q -h sha512 --pbkdf argon2i -c aes-xts-plain64 -s 512 "${BLOCK_DEVICE_PREFIX}2"
+cryptsetup open "${BLOCK_DEVICE_PREFIX}2" root
 mkfs.btrfs /dev/mapper/root
 
 echo 'Creating btrfs subvolumes.'
@@ -78,7 +78,7 @@ echo 'Mouting rootfs.'
 mount -o compress=zstd,subvol=@live/@rootfs /dev/mapper/root /mnt
 
 mkdir -p /mnt/{boot,home,var/lib,srv}
-mount "${BLOCK_DEVICE}1" /mnt/boot
+mount "${BLOCK_DEVICE_PREFIX}1" /mnt/boot
 mount -o compress=zstd,subvol=@live/home /dev/mapper/root /mnt/home
 mount -o compress=zstd,subvol=@live/var.lib /dev/mapper/root /mnt/var/lib
 mount -o compress=zstd,subvol=@live/srv /dev/mapper/root /mnt/srv
@@ -156,7 +156,7 @@ cat > /mnt/boot/loader/entries/archlinux.conf <<-EOF
 title ArchLinux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options cryptdevice="${BLOCK_DEVICE}2:root" root=/dev/mapper/root rootflags=compress=zstd,subvol=@live/@rootfs add_efi_memmap
+options cryptdevice="${BLOCK_DEVICE_PREFIX}2:root" root=/dev/mapper/root rootflags=compress=zstd,subvol=@live/@rootfs add_efi_memmap
 EOF
 
 umount -R /mnt
